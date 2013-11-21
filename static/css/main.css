@@ -1,0 +1,13 @@
+body {
+    background-color: black;
+}
+
+.coming-soon-container {
+    margin-top:200px;
+    text-align: center;
+}
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    color: White;
+    font-weight:normal;
+}
