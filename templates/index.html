@@ -1,13 +1,51 @@
+
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Ocho</title>
-    <link rel="stylesheet" type="text/css" href="/static/css/main.css">
+<meta charset="utf-8">
+<title>Ocho</title>
+<link rel="stylesheet" href="/static/css/main.css">
+
+  <script src="/static/js/libs/jquery-1.10.2.js"></script>
+  <script src="/static/js/libs/handlebars-v1.1.2.js"></script>
+  <script src="/static/js/libs/ember-1.2.0.js"></script>
+  <script src="/static/js/app.js"></script>
 </head>
 <body>
-<div class="coming-soon-container">
-    <img src="/static/img/ocho-logo.PNG">
-    <h1>Coming Soon. Don't forget it.</h1>
-</div>
+{% verbatim handlebars %}
+  <script type="text/x-handlebars">
+    <div class="top">
+    <div class="header-container">
+    <img src="/static/img/ocho-logo.png">
+    </div>
+    </div>
+    <div class="contents">
+    <div class="contents-container">
+    <ul class="nav-list">
+        <li>{{#link-to "index" classNames="nav-link-button"}}About Ocho{{/link-to}}</li>
+        <li>{{#link-to "how-it-works"  classNames="nav-link-button"}}How it Works{{/link-to}}</li>
+        <li>{{#link-to "buy-an-ocho"  classNames="nav-link-button"}}Buy an Ocho{{/link-to}}</li>
+    </ul>
+    {{outlet}}
+    </div>
+    </div>
+    <div class="footer-container"></div>
+
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="index">
+    <div>About Ocho</div>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="how-it-works">
+  <div>How it Works</div>
+
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="buy-an-ocho">
+  <div>Buy and Ocho</div>
+  </script>
+{% endverbatim handlebars %}
+
 </body>
 </html>

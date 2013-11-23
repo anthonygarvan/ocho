@@ -1,0 +1,58 @@
+@header-color: #0099CC;
+@content-width: 900px;
+@footer-color: #999999;
+
+.ember-application {
+  margin: 0px;
+}
+.top {
+  height:155px;
+  background-color: @header-color;
+  overflow: hidden;
+}
+
+.header-container {
+  width:@content-width;
+  margin: 0 auto;
+}
+
+.contents {
+  min-height: 550px;
+  background: -webkit-linear-gradient(#ffffff, #eeeeee);
+}
+
+.contents-container {
+  width: @content-width;
+  margin: 0 auto;
+}
+
+.footer-container {
+  background-color: @footer-color;
+  height:20px;
+  overflow:hidden;
+}
+
+.nav-list li{
+  display: inline;
+  list-style-type: none;
+  padding-right: 30px;
+}
+
+.nav-link-button {
+  -webkit-border-radius: 15px;
+  -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  -webkit-user-select: none;
+  background: @footer-color;
+  border: 1px solid #aaa;
+  color: White;
+  font-size: 20px;
+  margin-bottom: 0px;
+  min-width: 4em;
+  padding: 3px 12px 3px 12px;
+  font-family: sans-serif;
+  text-decoration: none;
+}
+
+.nav-list .active{
+  background:#777777;
+ }

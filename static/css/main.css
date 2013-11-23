@@ -1,13 +1,47 @@
-body {
-    background-color: #0099CC;
+.ember-application {
+  margin: 0px;
 }
-
-.coming-soon-container {
-    margin-top:100px;
-    text-align: center;
+.top {
+  height: 155px;
+  background-color: #0099cc;
+  overflow: hidden;
 }
-h1 {
-    font-family: Arial, Helvetica, sans-serif;
-    color: Black;
-    font-weight:normal;
+.header-container {
+  width: 900px;
+  margin: 0 auto;
+}
+.contents {
+  min-height: 550px;
+  background: -webkit-linear-gradient(#ffffff, #eeeeee);
+}
+.contents-container {
+  width: 900px;
+  margin: 0 auto;
+}
+.footer-container {
+  background-color: #999999;
+  height: 20px;
+  overflow: hidden;
+}
+.nav-list li {
+  display: inline;
+  list-style-type: none;
+  padding-right: 30px;
+}
+.nav-link-button {
+  -webkit-border-radius: 15px;
+  -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  -webkit-user-select: none;
+  background: #999999;
+  border: 1px solid #aaa;
+  color: White;
+  font-size: 20px;
+  margin-bottom: 0px;
+  min-width: 4em;
+  padding: 3px 12px 3px 12px;
+  font-family: sans-serif;
+  text-decoration: none;
+}
+.nav-list .active {
+  background: #777777;
 }
