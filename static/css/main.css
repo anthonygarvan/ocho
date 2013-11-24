@@ -11,12 +11,12 @@
   margin: 0 auto;
 }
 .contents {
-  min-height: 550px;
   background: -webkit-linear-gradient(#ffffff, #eeeeee);
 }
 .contents-container {
   width: 900px;
   margin: 0 auto;
+  min-height: 550px;
 }
 .footer-container {
   background-color: #999999;
@@ -44,4 +44,18 @@
 }
 .nav-list .active {
   background: #777777;
+}
+.buy-container {
+  overflow: hidden;
+  margin: 0 auto;
+}
+.buy-level {
+  overflow: hidden;
+}
+.buy-holder {
+  float: left;
+  margin-right: 50px;
+  margin-left: 50px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
