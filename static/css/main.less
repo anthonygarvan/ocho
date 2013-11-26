@@ -1,6 +1,7 @@
 @header-color: #0099CC;
 @content-width: 900px;
 @footer-color: #999999;
+@main-font: "Helvetica Neue Light", "Lucida Grande", "Calibri", "Arial", sans-serif;
 
 .ember-application {
   margin: 0px;
@@ -23,8 +24,7 @@
 .contents-container {
   width: @content-width;
   margin: 0 auto;
-  min-height: 550px;
-
+  min-height: 700px;
 }
 
 .footer-container {
@@ -46,12 +46,11 @@
   background: @footer-color;
   border: 1px solid #aaa;
   color: White;
-  font-size: 20px;
   margin-bottom: 0px;
   min-width: 4em;
   padding: 3px 12px 3px 12px;
-  font-family: sans-serif;
   text-decoration: none;
+  .text(20px);
 }
 
 .nav-list .active{
@@ -73,4 +72,18 @@
   margin-left: 50px;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.text(@size) {
+  font-size: @size;
+  font-family: "Helvetica Neue Light", "Lucida Grande", "Calibri", "Arial", sans-serif;
+  font-weight: normal;
+}
+
+h2 {
+  .text(35px);
+}
+
+h3 {
+  .text(25px);
 }
