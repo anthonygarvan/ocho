@@ -1,7 +1,11 @@
-
-<!DOCTYPE html>
-<html>
-<head>
+<!DOCTYPE html
+      PUBLIC "-//W3C//DTD HTML 4.01//EN"
+      "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="en-US">
+<head profile="http://www.w3.org/2005/10/profile">
+<link rel="icon"
+      type="image/png"
+      href="/static/img/favicon.png">
 <meta charset="utf-8">
 <title>Ocho</title>
 <link rel="stylesheet" href="/static/css/main.css">
@@ -20,29 +24,77 @@
         </div>
     </div>
 
-    <div class="contents">
-        <div class="contents-container">
+    <div class="contents-container">
         <ul class="nav-list">
             <li>{{#link-to "index" classNames="nav-link-button"}}About Ocho{{/link-to}}</li>
             <li>{{#link-to "how-it-works"  classNames="nav-link-button"}}How it Works{{/link-to}}</li>
             <li>{{#link-to "buy-an-ocho"  classNames="nav-link-button"}}Buy an Ocho{{/link-to}}</li>
         </ul>
+    </div>
+
         {{outlet}}
-        </div>
+
         <div class="footer-container"></div>
     </div>
   </script>
 
   <script type="text/x-handlebars" data-template-name="index">
-    <div>About Ocho</div>
+    <div class="contents">
+    <div class="contents-container">
+        <div>About Ocho</div>
+    </div>
+    </div>
   </script>
 
   <script type="text/x-handlebars" data-template-name="how-it-works">
-  <div>How it Works</div>
+  <div class="contents">
+  <div class="contents-container">
+      <div class="graphic-container"><img src="/static/img/how-it-works-graphic.png"></div>
 
+      <div class="how-it-works-text-container">
+          <h2>Ocho Lets You Know<h2>
+              <div class="use-case-list">
+              <p>...when your keys or wallet aren't where they should be</p>
+              <p>...when your cellphone isn't plugged in</p>
+              <p>...when your partner is running late</p>
+              <p>...and much more!</p>
+              </div>
+      </div>
+  </div>
+  </div>
+
+  <div class="contents-second-pane">
+  <div class="contents-container">
+  <div class="one-two-three-container">
+  <div class="how-it-works-num-container">
+      <img src="/static/img/how-it-works-1.png" class="how-it-works-num one">
+      <div class="how-it-works-description one">
+            <h2>Get an Account.</h2>
+            <p>You'll just need an email and a password.  We won't spam you.<p>
+      </div>
+  </div>
+  <div class="how-it-works-num-container">
+      <img src="/static/img/how-it-works-2.png" class="how-it-works-num two">
+      <div class="how-it-works-description two">
+            <h2>Get Ocho Connected.</h2>
+            <p>Plug in Ocho and it will learn to connect to your Wi-Fi.<p>
+      </div>
+  </div>
+  <div class="how-it-works-num-container">
+      <img src="/static/img/how-it-works-3.png" class="how-it-works-num three">
+      <div class="how-it-works-description three">
+            <h2>Get your sh*t together.</h2>
+            <p>Set up Ocho to keep your stuff where it belongs, to keep your partner in the loop, and to quantify your life.<p>
+      </div>
+  </div>
+  </div>
+  </div>
+  </div>
   </script>
 
   <script type="text/x-handlebars" data-template-name="buy-an-ocho">
+  <div class="contents">
+  <div class="contents-container">
   <div>
         <h2>Thanks for your interest!</h2>
         <h3>You can buy an Ocho from one of our certified retailers:</h3>
@@ -56,6 +108,8 @@
         <div class="buy-holder"><a href="http://www.groupon.com"><img src="/static/img/groupon.png"></a></div>
         <div class="buy-holder"><a href="http://www.bestbuy.com"><img src="/static/img/best buy.png"></a></div>
       </div>
+  </div>
+  </div>
   </div>
   </script>
 {% endverbatim handlebars %}

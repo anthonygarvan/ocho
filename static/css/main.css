@@ -12,11 +12,16 @@
 }
 .contents {
   background: -webkit-linear-gradient(#ffffff, #eeeeee);
+  min-height: 700px;
+  overflow: hidden;
+}
+.contents-second-pane {
+  background: #FFFFCC;
+  overflow: hidden;
 }
 .contents-container {
   width: 900px;
   margin: 0 auto;
-  min-height: 700px;
 }
 .footer-container {
   background-color: #999999;
@@ -55,8 +60,8 @@
 }
 .buy-holder {
   float: left;
-  margin-right: 50px;
-  margin-left: 50px;
+  margin-right: 25px;
+  margin-left: 0px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
@@ -69,4 +74,33 @@ h3 {
   font-size: 25px;
   font-family: "Helvetica Neue Light", "Lucida Grande", "Calibri", "Arial", sans-serif;
   font-weight: normal;
+}
+p {
+  font-size: 20px;
+  font-family: "Helvetica Neue Light", "Lucida Grande", "Calibri", "Arial", sans-serif;
+  font-weight: normal;
+  margin: 10px;
+}
+.use-case-list {
+  padding-left: 150px;
+}
+.one-two-three-container {
+  background-color: #FFFFCC;
+}
+.how-it-works-num-container {
+  overflow: hidden;
+  margin-bottom: 25px;
+  margin-top: 25px;
+}
+.one,
+.three {
+  float: left;
+  text-align: left;
+}
+.two {
+  float: right;
+  text-align: right;
+}
+.how-it-works-description {
+  width: 400px;
 }
