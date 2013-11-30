@@ -1,3 +1,4 @@
+@import "slide.less";
 @header-color: #0099CC;
 @content-width: 900px;
 @footer-color: #999999;
@@ -19,13 +20,15 @@
 
 .contents {
   background: -webkit-linear-gradient(#ffffff, #eeeeee);
-  min-height: 700px;
+  min-height: 550px;
   overflow:hidden;
+
 }
 
 .contents-second-pane {
   background: #FFFFCC;
   overflow:hidden;
+  border-top: 5px solid white;
 }
 
 .contents-container {
@@ -57,10 +60,17 @@
   padding: 3px 12px 3px 12px;
   text-decoration: none;
   .text(20px);
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#888888), to(#999999));
+  border-color: #333333;
+  border-top:1px solid #eeeeee;
 }
 
 .nav-list .active{
-  background:#777777;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#777777), to(#666666));
+  border-color: #333333;
+  border-top: 1px solid #333333;
+  border-bottom: 1px solid #eeeeee;
  }
 
 .buy-container {
@@ -82,12 +92,13 @@
 
 .text(@size) {
   font-size: @size;
-  font-family: "Helvetica Neue Light", "Lucida Grande", "Calibri", "Arial", sans-serif;
+  font-family: "Raleway","Helvetica Neue Light", "Lucida Grande", "Calibri", "Arial", sans-serif;
   font-weight: normal;
 }
 
 h2 {
   .text(35px);
+  margin: 10px;
 }
 
 h3 {
@@ -132,4 +143,8 @@ p {
 }
 
 .how-it-works-num {
+}
+
+#slides {
+  display:none;
 }

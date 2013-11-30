@@ -7,7 +7,33 @@ App.Router.map(function() {
 });
 
 App.IndexRoute = Ember.Route.extend({
-  model: function() {
-    return ['red', 'yellow', 'blue'];
+  renderTemplate: function() {
+    this.render('index');
   }
 });
+
+App.IndexView = Ember.View.extend({
+  didInsertElement : function(){
+    this._super();
+    Ember.run.scheduleOnce('afterRender', this, function(){
+        $("#slides").slidesjs({
+            width: 800,
+            height: 700,
+            navigation: false
+          })
+    });}
+});
+
+/*
+var view = Ember.View.create({
+    templateName: 'index',
+    //initializeSlides: function () {$("#slides").slidesjs({
+    //    width: 800,
+     //   height: 700,
+     //   navigation: false
+     // });},
+    name: 'Bobo'
+});
+
+view.append('.ember-application');
+*/
