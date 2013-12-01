@@ -4,9 +4,53 @@
 @footer-color: #999999;
 @main-font: "Helvetica Neue Light", "Lucida Grande", "Calibri", "Arial", sans-serif;
 
+
+html, body {
+   margin:0;
+   padding:0;
+   height:100%;
+   position: relative;
+}
+
+.ember-view {
+   min-height: 100%;
+   height: auto !important;
+   height: 100%;
+   position:relative;
+}
+
 .ember-application {
   margin: 0px;
+  height: 100%;
+  //background: -webkit-linear-gradient(#ffffff, #eeeeee);
+  background:#eeebeb;
+  //.stripes;
+  //.horizontal;
 }
+
+.stripes {
+height: 250px;
+width: 375px;
+//float: left;
+margin: 10px;
+-webkit-background-size: 50px 50px;
+-moz-background-size: 50px 50px;
+background-size: 50px 50px;
+-moz-box-shadow: 1px 1px 8px gray;
+-webkit-box-shadow: 1px 1px 8px gray;
+box-shadow: 1px 1px 8px gray;
+}
+
+.horizontal {
+  background-color: #0ae;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(.5, rgba(255, 255, 255, .2)), color-stop(.5, transparent), to(transparent));
+  background-image: -webkit-linear-gradient(rgba(255, 255, 255, .2) 50%, transparent 50%, transparent);
+  background-image: -moz-linear-gradient(rgba(255, 255, 255, .2) 50%, transparent 50%, transparent);
+  background-image: -ms-linear-gradient(rgba(255, 255, 255, .2) 50%, transparent 50%, transparent);
+  background-image: -o-linear-gradient(rgba(255, 255, 255, .2) 50%, transparent 50%, transparent);
+  background-image: linear-gradient(rgba(255, 255, 255, .2) 50%, transparent 50%, transparent);
+}
+
 .top {
   height:155px;
   background-color: @header-color;
@@ -19,10 +63,9 @@
 }
 
 .contents {
-  background: -webkit-linear-gradient(#ffffff, #eeeeee);
-  min-height: 550px;
+  //min-height: 550px;
   overflow:hidden;
-
+  height:100%;
 }
 
 .contents-second-pane {
@@ -34,12 +77,16 @@
 .contents-container {
   width: @content-width;
   margin: 0 auto;
+  background-color:transparent;
 }
 
 .footer-container {
   background-color: @footer-color;
   height:20px;
   overflow:hidden;
+  position:absolute;
+  bottom:0;
+  width:100%;
 }
 
 .nav-list li{

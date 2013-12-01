@@ -18,9 +18,10 @@ App.IndexView = Ember.View.extend({
     Ember.run.scheduleOnce('afterRender', this, function(){
         $("#slides").slidesjs({
             width: 800,
-            height: 700,
+            height: 550,
             navigation: false
           })
+        $('#slides').css('overflow', 'visible');
     });}
 });
 
