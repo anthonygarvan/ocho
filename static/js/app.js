@@ -24,17 +24,3 @@ App.IndexView = Ember.View.extend({
         $('#slides').css('overflow', 'visible');
     });}
 });
-
-/*
-var view = Ember.View.create({
-    templateName: 'index',
-    //initializeSlides: function () {$("#slides").slidesjs({
-    //    width: 800,
-     //   height: 700,
-     //   navigation: false
-     // });},
-    name: 'Bobo'
-});
-
-view.append('.ember-application');
-*/

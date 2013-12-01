@@ -28,29 +28,6 @@ html, body {
   //.horizontal;
 }
 
-.stripes {
-height: 250px;
-width: 375px;
-//float: left;
-margin: 10px;
--webkit-background-size: 50px 50px;
--moz-background-size: 50px 50px;
-background-size: 50px 50px;
--moz-box-shadow: 1px 1px 8px gray;
--webkit-box-shadow: 1px 1px 8px gray;
-box-shadow: 1px 1px 8px gray;
-}
-
-.horizontal {
-  background-color: #0ae;
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(.5, rgba(255, 255, 255, .2)), color-stop(.5, transparent), to(transparent));
-  background-image: -webkit-linear-gradient(rgba(255, 255, 255, .2) 50%, transparent 50%, transparent);
-  background-image: -moz-linear-gradient(rgba(255, 255, 255, .2) 50%, transparent 50%, transparent);
-  background-image: -ms-linear-gradient(rgba(255, 255, 255, .2) 50%, transparent 50%, transparent);
-  background-image: -o-linear-gradient(rgba(255, 255, 255, .2) 50%, transparent 50%, transparent);
-  background-image: linear-gradient(rgba(255, 255, 255, .2) 50%, transparent 50%, transparent);
-}
-
 .top {
   height:155px;
   background-color: @header-color;
@@ -78,6 +55,7 @@ box-shadow: 1px 1px 8px gray;
   width: @content-width;
   margin: 0 auto;
   background-color:transparent;
+  overflow: hidden;
 }
 
 .footer-container {
@@ -96,10 +74,25 @@ box-shadow: 1px 1px 8px gray;
 }
 
 .nav-link-button {
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#888888), to(#999999));
+  .btn;
+}
+
+.quick-link-button {
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(@header-color), to(@header-color+#111));
+  .btn;
+  width: 160px;
+}
+
+.quick-link-container {
+  margin-top: 15px;
+  margin-left:50px;
+}
+
+.btn {
   -webkit-border-radius: 15px;
   -webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
   -webkit-user-select: none;
-  background: @footer-color;
   border: 1px solid #aaa;
   color: White;
   margin-bottom: 0px;
@@ -108,9 +101,8 @@ box-shadow: 1px 1px 8px gray;
   text-decoration: none;
   .text(20px);
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#888888), to(#999999));
   border-color: #333333;
-  border-top:1px solid #eeeeee;
+
 }
 
 .nav-list .active{
@@ -194,4 +186,24 @@ p {
 
 #slides {
   display:none;
+}
+
+.highlight {
+  float:left;
+  margin:2%;
+  padding:15px;
+  border: 2px solid black;
+  -webkit-border-radius: 15px;
+  width: 25%;
+  height: 80px;
+  background-color: #FFFFCC;
+  .text(20px);
+}
+
+.highlights-container {
+  width: 100%;
+  margin: 0 auto;
+  margin-top: 50px;
+  margin-bottom: 20px;
+  overflow:hidden;
 }
