@@ -27,15 +27,20 @@
 
     <div class="contents-container">
         <div class="nav-list">
-            <div class="nav-list-container"><a href="/#/"><div class="nav-link-button">About Ocho</div></a></div>
-            <div class="nav-list-container"><a href="/#/how-it-works"><div class="nav-link-button">How it Works</div></a></div>
-            <div class="nav-list-container"><a href="/#/buy-an-ocho"><div class="nav-link-button">Buy an Ocho</div></a></div>
+            <div class="nav-list-container">{{#link-to 'index'}}<div class="nav-link-button">About Ocho</div>{{/link-to}}</div>
+            <div class="nav-list-container">{{#link-to 'how-it-works'}}<div class="nav-link-button">How it Works</div>{{/link-to}}</div>
+            <div class="nav-list-container">{{#link-to 'buy-an-ocho'}}<div class="nav-link-button">Buy an Ocho</div>{{/link-to}}</div>
         </div>
     </div>
 
     {{outlet}}
 
-    <div class="footer-container"></div>
+    <div class="footer-container">
+    <div class="contents-container">
+        <div class="footer-item"><a href="/#/contact-us">Contact Us</a></div>
+        <div class="footer-item"><a href="/#/privacy-policy">Privacy Policy</a></div>
+    </div>
+    </div>
   </script>
 
   <script type="text/x-handlebars" data-template-name="index">
@@ -135,6 +140,31 @@
   </div>
   </div>
   </script>
+
+  <script type="text/x-handlebars" data-template-name="privacy-policy">
+  <div class="contents">
+      <div class="contents-container">
+          <div>
+                <h2>Privacy Policy</h2>
+                <h3>We do not yet have a formal privacy policy.  Coming soon!</h3>
+          </div>
+       </div>
+   </div>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="contact-us">
+  <div class="contents">
+      <div class="contents-container">
+          <div>
+                <h2>Contact Us</h2>
+                <h3>Thanks for your interest!</h3>
+                <p>Webmaster: <a href="mailto:web@ochopad.com?subject=Inquiry">web@ochopad.com</a></p>
+                <p>General Inquiries: <a href="mailto:info@ochopad.com?subject=Inquiry">info@ochopad.com</a></p>
+          </div>
+       </div>
+   </div>
+  </script>
+
 {% endverbatim handlebars %}
 
 </body>

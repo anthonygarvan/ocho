@@ -114,11 +114,27 @@ body {
 }
 .footer-container {
   background-color: #999999;
-  height: 20px;
+  padding: 5px;
   overflow: hidden;
   position: absolute;
   bottom: 0;
   width: 100%;
+}
+.footer-item {
+  float: right;
+  margin-left: 20px;
+}
+.footer-item a {
+  color: #646464;
+  font-size: 15px;
+  font-family: "Raleway", "Helvetica Neue Light", "Lucida Grande", "Calibri", "Arial", sans-serif;
+  font-weight: normal;
+}
+.footer-item a:hover {
+  text-decoration: underline;
+}
+.footer-item a:active {
+  font-weight: bold;
 }
 .nav-list {
   overflow: hidden;
@@ -129,8 +145,11 @@ body {
   float: left;
   padding: 15px;
 }
+.active .nav-link-button {
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#6f6f6f), to(#808080));
+}
 .nav-link-button {
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#888888), to(#999999));
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#999999), to(#888888));
   -webkit-border-radius: 15px;
   -webkit-user-select: none;
   border: 1px solid #aaa;
@@ -153,7 +172,7 @@ body {
   box-shadow: 0 0 15px #999999;
 }
 .quick-link-button {
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#0099cc), to(#11aadd));
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#00a1d6), to(#0091c2));
   -webkit-border-radius: 15px;
   -webkit-user-select: none;
   border: 1px solid #aaa;
@@ -174,6 +193,9 @@ body {
   -webkit-box-shadow: 0 0 15px #0099cc;
   box-shadow: 0 0 15px #0099cc;
 }
+.quick-link-button:active {
+  background: #0086b3;
+}
 .quick-link-container {
   margin-top: 15px;
   margin-left: 50px;
@@ -193,7 +215,7 @@ body {
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
   border-color: #333333;
 }
-.nav-list .active {
+.nav-link-button:active {
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#777777), to(#666666));
 }
 a {
@@ -273,7 +295,7 @@ p {
 .highlights-container {
   width: 100%;
   margin: 0 auto;
-  margin-top: 50px;
+  margin-top: 25px;
   margin-bottom: 20px;
   overflow: hidden;
 }
