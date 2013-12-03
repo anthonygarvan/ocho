@@ -97,6 +97,25 @@ body {
   width: 900px;
   margin: 0 auto;
 }
+.login-button {
+  margin-top: 77.5px;
+  background-color: #766464;
+  color: white;
+  float: right;
+  font-size: 40px;
+  font-family: "Raleway", "Helvetica Neue Light", "Lucida Grande", "Calibri", "Arial", sans-serif;
+  font-weight: normal;
+  padding: 20px;
+}
+.login-form {
+  width: 200px;
+  height: 200px;
+  padding: 20px;
+  position: absolute;
+  display: none;
+  top: 155px;
+  right: 0px;
+}
 .contents {
   overflow: hidden;
   height: 100%;
@@ -143,33 +162,25 @@ body {
 .nav-list-container {
   overflow: hidden;
   float: left;
-  padding: 15px;
+}
+.nav-bar {
+  background-color: #c7c3c3;
+  margin-bottom: 20px;
 }
 .active .nav-link-button {
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#6f6f6f), to(#808080));
+  background-color: #eeebeb;
 }
 .nav-link-button {
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#999999), to(#888888));
-  -webkit-border-radius: 15px;
-  -webkit-user-select: none;
-  border: 1px solid #aaa;
-  color: White;
-  margin-bottom: 0px;
-  min-width: 4em;
-  padding: 3px 12px 3px 12px;
-  text-decoration: none;
   font-size: 20px;
   font-family: "Raleway", "Helvetica Neue Light", "Lucida Grande", "Calibri", "Arial", sans-serif;
   font-weight: normal;
-  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-  border-color: #333333;
   width: 130px;
   float: left;
+  padding: 15px;
+  color: black;
 }
 .nav-link-button:hover {
-  -moz-box-shadow: 0 0 15px #999999;
-  -webkit-box-shadow: 0 0 15px #999999;
-  box-shadow: 0 0 15px #999999;
+  color: #0099cc;
 }
 .quick-link-button {
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#00a1d6), to(#0091c2));
@@ -281,16 +292,16 @@ p {
 }
 .highlight {
   float: left;
-  margin: 2%;
+  margin: .5%;
   padding: 15px;
   border: 2px solid black;
-  -webkit-border-radius: 15px;
-  width: 25%;
+  width: 28%;
   height: 80px;
-  background-color: #FFFFCC;
+  background-color: #e2dddd;
   font-size: 20px;
   font-family: "Raleway", "Helvetica Neue Light", "Lucida Grande", "Calibri", "Arial", sans-serif;
   font-weight: normal;
+  box-shadow: 0 0 5px #a59f9f;
 }
 .highlights-container {
   width: 100%;

@@ -32,6 +32,11 @@ App.IndexView = Ember.View.extend({
             }
           })
         $('#slides').css('overflow', 'visible');
+        $('#login').hover(function() {
+            $('.login-form').slideDown();},
+            function() {
+                $('.login-form').slideUp();
+        });
         //$('.slidesjs-play').css('display', 'none');
         //$('.slidesjs-stop').css('display', 'none');
     });}

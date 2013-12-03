@@ -3,7 +3,8 @@
 @content-width: 900px;
 @footer-color: #999999;
 @main-font: "Helvetica Neue Light", "Lucida Grande", "Calibri", "Arial", sans-serif;
-
+@body-color:#eeebeb;
+@top-height: 155px;
 
 html, body {
    margin:0;
@@ -23,13 +24,13 @@ html, body {
   margin: 0px;
   height: 100%;
   //background: -webkit-linear-gradient(#ffffff, #eeeeee);
-  background:#eeebeb;
+  background:@body-color;
   //.stripes;
   //.horizontal;
 }
 
 .top {
-  height:155px;
+  height:@top-height;
   background-color: @header-color;
   overflow: hidden;
 }
@@ -37,6 +38,25 @@ html, body {
 .header-container {
   width:@content-width;
   margin: 0 auto;
+}
+
+.login-button {
+  margin-top:@top-height/2;
+  background-color: darken(@body-color,50%);
+  color:white;
+  float:right;
+  .text(40px);
+  padding:20px;
+}
+
+.login-form {
+  width: 200px;
+  height: 200px;
+  padding: 20px;
+  position:absolute;
+  display:none;
+  top:@top-height;
+  right:0px;
 }
 
 .contents {
@@ -99,23 +119,32 @@ html, body {
 .nav-list-container {
   overflow:hidden;
   float:left;
-  padding: 15px;
+}
+
+.nav-bar {
+  background-color:rgb(199, 195, 195);
+  margin-bottom:20px;
 }
 
 .active .nav-link-button {
-  background-image:-webkit-gradient(linear, 0 0, 0 100%, from(darken(#888888, 10%)), to(darken(#999999, 10%)));
+//  background-image:-webkit-gradient(linear, 0 0, 0 100%, from(darken(#888888, 10%)), to(darken(#999999, 10%)));
+  background-color: @body-color;
 }
 
 .nav-link-button {
-  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#999999), to(#888888));
-  .btn;
+  //background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#999999), to(#888888));
+  .text(20px);
   width: 130px;
   float:left;
+  padding: 15px;
+  color: black;
 }
 
 .nav-link-button:hover {
-  .outer-glow(#999999);
+  //.outer-glow(#999999);
+  color: @header-color;
 }
+
 .quick-link-button {
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(lighten(@header-color,2%)), to(darken(@header-color, 2%)));
   .btn;
@@ -238,14 +267,15 @@ p {
 
 .highlight {
   float:left;
-  margin:2%;
+  margin:.5%;
   padding:15px;
   border: 2px solid black;
-  -webkit-border-radius: 15px;
-  width: 25%;
+ // -webkit-border-radius: 15px;
+  width: 28%;
   height: 80px;
-  background-color: #FFFFCC;
+  background-color: darken(@body-color, 5%);
   .text(20px);
+  box-shadow: 0 0 5px rgb(165, 159, 159);
 }
 
 .highlights-container {
