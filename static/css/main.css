@@ -75,13 +75,17 @@ body {
   margin: 0;
   padding: 0;
   height: 100%;
-  position: relative;
+}
+.wrapper {
+  min-height: 100%;
+  height: auto;
+  /* Negative indent footer by its height */
+  margin: 0 auto -35px;
+  /* Pad bottom by footer height */
+  padding: 0 0 35px;
 }
 .ember-view {
-  min-height: 100%;
-  height: auto !important;
-  height: 100%;
-  position: relative;
+  height: calc(100% - 35px);
 }
 .ember-application {
   margin: 0px;
@@ -133,11 +137,11 @@ body {
 }
 .footer-container {
   background-color: #999999;
-  padding: 5px;
+  padding-top: calc(.25 * 35px);
+  padding-bottom: calc(.25 * 35px);
   overflow: hidden;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
+  font-size: calc(.4 * 35px);
+  height: calc(.5 * 35px);
 }
 .footer-item {
   float: right;
@@ -164,11 +168,12 @@ body {
   float: left;
 }
 .nav-bar {
-  background-color: #c7c3c3;
+  background-color: #c027e6;
   margin-bottom: 20px;
 }
 .active .nav-link-button {
   background-color: #eeebeb;
+  color: Black;
 }
 .nav-link-button {
   font-size: 20px;
@@ -177,10 +182,10 @@ body {
   width: 130px;
   float: left;
   padding: 15px;
-  color: black;
+  color: White;
 }
 .nav-link-button:hover {
-  color: #0099cc;
+  font-weight: bold;
 }
 .quick-link-button {
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#00a1d6), to(#0091c2));
