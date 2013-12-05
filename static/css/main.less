@@ -5,8 +5,9 @@
 @main-font: "Helvetica Neue Light", "Lucida Grande", "Calibri", "Arial", sans-serif;
 @body-color:#eeebeb;
 @top-height: 155px;
-@nav-color: #C027E6;
+@nav-color: #68217a;
 @footer-height: 35px;
+@login-button-color: #5F5050;
 
 html, body {
    margin:0;
@@ -48,12 +49,13 @@ html, body {
 }
 
 .login-button {
-  margin-top:@top-height/2;
-  background-color: darken(@body-color,50%);
+  @login-height: @top-height/2;
+  margin-top:@top-height - @login-height;
+  .text(@login-height*.5);
+  padding:@login-height*.25;
+  background-color: @login-button-color;
   color:white;
   float:right;
-  .text(40px);
-  padding:20px;
 }
 
 .login-form {
@@ -133,7 +135,6 @@ html, body {
 
 .nav-bar {
   background-color:@nav-color;
-  margin-bottom:20px;
 }
 
 .active .nav-link-button {
@@ -152,7 +153,11 @@ html, body {
 }
 
 .nav-link-button:hover {
-  font-weight: bold;
+  background-color: lighten(@nav-color, 5%);
+}
+
+.active .nav-link-button:hover {
+  background-color: darken(@body-color, 5%);
 }
 
 .quick-link-button {

@@ -27,7 +27,7 @@ App.IndexView = Ember.View.extend({
             play: {
               active: false,
               auto: true,
-              interval: 4000,
+              interval: 7000,
               swap: false
             }
           })

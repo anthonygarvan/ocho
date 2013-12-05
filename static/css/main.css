@@ -64,11 +64,17 @@
   left: -10%;
   z-index: 999;
 }
+#slides .slidesjs-previous :hover {
+  background-color: #d7cfcf;
+}
 #slides .slidesjs-next {
   position: absolute;
   top: 45%;
   right: -10%;
   z-index: 999;
+}
+#slides .slidesjs-next :hover {
+  background-color: #d7cfcf;
 }
 html,
 body {
@@ -103,13 +109,13 @@ body {
 }
 .login-button {
   margin-top: 77.5px;
-  background-color: #766464;
-  color: white;
-  float: right;
-  font-size: 40px;
+  font-size: 38.75px;
   font-family: "Raleway", "Helvetica Neue Light", "Lucida Grande", "Calibri", "Arial", sans-serif;
   font-weight: normal;
-  padding: 20px;
+  padding: 19.375px;
+  background-color: #5f5050;
+  color: white;
+  float: right;
 }
 .login-form {
   width: 200px;
@@ -168,8 +174,7 @@ body {
   float: left;
 }
 .nav-bar {
-  background-color: #c027e6;
-  margin-bottom: 20px;
+  background-color: #68217a;
 }
 .active .nav-link-button {
   background-color: #eeebeb;
@@ -185,7 +190,10 @@ body {
   color: White;
 }
 .nav-link-button:hover {
-  font-weight: bold;
+  background-color: #79268e;
+}
+.active .nav-link-button:hover {
+  background-color: #e2dddd;
 }
 .quick-link-button {
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#00a1d6), to(#0091c2));
