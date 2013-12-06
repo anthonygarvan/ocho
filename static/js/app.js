@@ -15,6 +15,13 @@ App.IndexRoute = Ember.Route.extend({
   }
 });
 */
+var toggleLogin = function() {
+        if($('#login-form').is(":visible")) {
+            $('#login-form').slideUp();
+        } else {
+            $('#login-form').slideDown();
+        }
+};
 
 App.IndexView = Ember.View.extend({
   didInsertElement : function(){
@@ -32,11 +39,12 @@ App.IndexView = Ember.View.extend({
             }
           })
         $('#slides').css('overflow', 'visible');
-        $('#login').hover(function() {
-            $('.login-form').slideDown();},
+        $('#login').unbind("click").click(
             function() {
-                $('.login-form').slideUp();
-        });
+                toggleLogin();
+                //alert("clicked!");
+            }
+        );
         //$('.slidesjs-play').css('display', 'none');
         //$('.slidesjs-stop').css('display', 'none');
     });}

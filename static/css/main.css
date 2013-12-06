@@ -76,6 +76,9 @@
 #slides .slidesjs-next :hover {
   background-color: #d7cfcf;
 }
+html {
+  overflow-y: scroll;
+}
 html,
 body {
   margin: 0;
@@ -116,6 +119,10 @@ body {
   background-color: #5f5050;
   color: white;
   float: right;
+  cursor: pointer;
+}
+.login-button:hover {
+  background-color: #514444;
 }
 .login-form {
   width: 200px;

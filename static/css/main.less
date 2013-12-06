@@ -9,6 +9,10 @@
 @footer-height: 35px;
 @login-button-color: #5F5050;
 
+html {
+  overflow-y: scroll;
+}
+
 html, body {
    margin:0;
    padding:0;
@@ -56,6 +60,11 @@ html, body {
   background-color: @login-button-color;
   color:white;
   float:right;
+  cursor:pointer;
+}
+
+.login-button:hover {
+  background-color: darken(@login-button-color, 5%);
 }
 
 .login-form {
