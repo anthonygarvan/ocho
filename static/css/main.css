@@ -93,7 +93,7 @@ body {
   /* Pad bottom by footer height */
   padding: 0 0 35px;
 }
-.ember-view {
+#ember204 {
   height: calc(100% - 35px);
 }
 .ember-application {
@@ -124,14 +124,23 @@ body {
 .login-button:hover {
   background-color: #514444;
 }
+.email,
+.password {
+  width: 90%;
+  font-size: 20px;
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
 .login-form {
-  width: 200px;
-  height: 200px;
-  padding: 20px;
+  width: 240px;
+  padding: 30px;
   position: absolute;
   display: none;
   top: 155px;
-  right: 0px;
+  left: 0px;
+  background-color: #5f5050;
+  z-index: 1200;
 }
 .contents {
   overflow: hidden;
@@ -217,6 +226,8 @@ body {
   font-weight: normal;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
   border-color: #333333;
+  cursor: pointer;
+  text-align: center;
   width: 130px;
 }
 .quick-link-button:hover {
@@ -230,6 +241,9 @@ body {
 .quick-link-container {
   margin-top: 15px;
   margin-left: 50px;
+}
+.quick-link-button.submit-login {
+  float: right;
 }
 .btn {
   -webkit-border-radius: 15px;
@@ -245,6 +259,8 @@ body {
   font-weight: normal;
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
   border-color: #333333;
+  cursor: pointer;
+  text-align: center;
 }
 .nav-link-button:active {
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#777777), to(#666666));

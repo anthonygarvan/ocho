@@ -18,8 +18,10 @@ App.IndexRoute = Ember.Route.extend({
 var toggleLogin = function() {
         if($('#login-form').is(":visible")) {
             $('#login-form').slideUp();
+            $('#login span').text("▼");
         } else {
             $('#login-form').slideDown();
+            $('#login span').text("▲");
         }
 };
 
@@ -39,6 +41,10 @@ App.IndexView = Ember.View.extend({
             }
           })
         $('#slides').css('overflow', 'visible');
+        var loginLeft = $("#login").position()['left'];
+        var loginRight = loginLeft + $("#login").outerWidth(true);
+        var loginFormLeftPos = loginRight - $("#login-form").outerWidth(true);
+        $("#login-form").css("left", loginFormLeftPos);
         $('#login').unbind("click").click(
             function() {
                 toggleLogin();

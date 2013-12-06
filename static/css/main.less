@@ -28,7 +28,7 @@ html, body {
   padding: 0 0 @footer-height;
 }
 
-.ember-view {
+#ember204 {
    height: calc(~'100% - @{footer-height}');
 }
 
@@ -67,14 +67,28 @@ html, body {
   background-color: darken(@login-button-color, 5%);
 }
 
+.email, .password {
+  .input(90%);
+  margin-bottom:20px;
+}
+
+.input(@width) {
+  width: @width;
+  font-size: 20px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
 .login-form {
-  width: 200px;
-  height: 200px;
-  padding: 20px;
+  @total-width: 300px;
+  width: @total-width*.8;
+  padding: @total-width*.1;
   position:absolute;
   display:none;
   top:@top-height;
-  right:0px;
+  left:0px;
+  background-color:@login-button-color;
+  z-index:1200;
 }
 
 .contents {
@@ -188,6 +202,10 @@ html, body {
   margin-left:50px;
 }
 
+.quick-link-button.submit-login {
+  float:right;
+}
+
 .btn {
   -webkit-border-radius: 15px;
   //-webkit-box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
@@ -201,6 +219,8 @@ html, body {
   .text(20px);
   text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
   border-color: #333333;
+  cursor: pointer;
+  text-align:center;
 }
 
 
