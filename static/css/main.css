@@ -93,7 +93,7 @@ body {
   /* Pad bottom by footer height */
   padding: 0 0 35px;
 }
-#ember204 {
+.ember-application .ember-view {
   height: calc(100% - 35px);
 }
 .ember-application {

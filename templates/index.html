@@ -18,8 +18,9 @@
 </head>
 <body>
 {% verbatim handlebars %}
-  <script type="text/x-handlebars">
-    <div class="wrapper">
+
+  <script type = "text/x-handlebars" data-template-name="site">
+   <div class="wrapper">
     <div class="top">
         <div class="header-container">
             <a href="/#/"><img src="/static/img/ocho-logo.png"></a>
@@ -30,30 +31,34 @@
     <div id="login-form" class="login-form">
     {{input type="text" value=email placeholder="email" size="50" class="email"}}
     {{input type="password" value=password placeholder="password" size="50" class="password"}}
-    <div class="quick-link-button submit-login" id="submit-login">Sign In</div>
-    </div>
-
-    <div class="nav-bar">
-        <div class="contents-container">
-            <div class="nav-list">
-                <div class="nav-list-container">{{#link-to 'index'}}<div class="nav-link-button">About Ocho</div>{{/link-to}}</div>
-                <div class="nav-list-container">{{#link-to 'how-it-works'}}<div class="nav-link-button">How it Works</div>{{/link-to}}</div>
-                <div class="nav-list-container">{{#link-to 'buy-an-ocho'}}<div class="nav-link-button">Buy an Ocho</div>{{/link-to}}</div>
-            </div>
-        </div>
+    <div class="quick-link-button submit-login" id="sign-in">Sign In</div>
     </div>
 
     {{outlet}}
     </div>
     <div class="footer-container">
     <div class="contents-container">
-        <div class="footer-item"><a href="/#/contact-us">Contact Us</a></div>
-        <div class="footer-item"><a href="/#/privacy-policy">Privacy Policy</a></div>
+        <div class="footer-item">{{#link-to 'public.contact-us'}}Contact Us{{/link-to}}</div>
+        <div class="footer-item">{{#link-to 'public.privacy-policy'}}Privacy Policy{{/link-to}}</div>
     </div>
     </div>
   </script>
+  <script type="text/x-handlebars" data-template-name="public">
+    <div class="nav-bar">
+        <div class="contents-container">
+            <div class="nav-list">
+                <div class="nav-list-container">{{#link-to 'public.index'}}<div class="nav-link-button">About Ocho</div>{{/link-to}}</div>
+                <div class="nav-list-container">{{#link-to 'public.how-it-works'}}<div class="nav-link-button">How it Works</div>{{/link-to}}</div>
+                <div class="nav-list-container">{{#link-to 'public.buy-an-ocho'}}<div class="nav-link-button">Buy an Ocho</div>{{/link-to}}</div>
+            </div>
+        </div>
+    </div>
 
-  <script type="text/x-handlebars" data-template-name="index">
+    {{outlet}}
+
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="public/index">
     <div>{{#view App.IndexView}}{{/view}}</div>
     <div class="contents">
     <div class="contents-container">
@@ -84,7 +89,7 @@
     </div>
   </script>
 
-  <script type="text/x-handlebars" data-template-name="how-it-works">
+  <script type="text/x-handlebars" data-template-name="public/how-it-works">
   <div class="contents">
   <div class="contents-container">
       <div class="graphic-container"><img src="/static/img/how-it-works-graphic.png"></div>
@@ -130,7 +135,7 @@
   </div>
   </script>
 
-  <script type="text/x-handlebars" data-template-name="buy-an-ocho">
+  <script type="text/x-handlebars" data-template-name="public/buy-an-ocho">
   <div class="contents">
   <div class="contents-container">
   <div>
@@ -151,7 +156,7 @@
   </div>
   </script>
 
-  <script type="text/x-handlebars" data-template-name="privacy-policy">
+  <script type="text/x-handlebars" data-template-name="public/privacy-policy">
   <div class="contents">
       <div class="contents-container">
           <div>
@@ -162,7 +167,7 @@
    </div>
   </script>
 
-  <script type="text/x-handlebars" data-template-name="contact-us">
+  <script type="text/x-handlebars" data-template-name="public/contact-us">
   <div class="contents">
       <div class="contents-container">
           <div>
@@ -170,6 +175,50 @@
                 <h3>Thanks for your interest!</h3>
                 <p>Webmaster: <a href="mailto:web@ochopad.com?subject=Inquiry">web@ochopad.com</a></p>
                 <p>General Inquiries: <a href="mailto:info@ochopad.com?subject=Inquiry">info@ochopad.com</a></p>
+          </div>
+       </div>
+   </div>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="portal">
+    <div class="nav-bar">
+        <div class="contents-container">
+            <div class="nav-list">
+                <div class="nav-list-container">{{#link-to 'portal.index'}}<div class="nav-link-button">Dashboard</div>{{/link-to}}</div>
+                <div class="nav-list-container">{{#link-to 'portal.events'}}<div class="nav-link-button">Events</div>{{/link-to}}</div>
+                <div class="nav-list-container">{{#link-to 'portal.devices'}}<div class="nav-link-button">Devices</div>{{/link-to}}</div>
+            </div>
+        </div>
+    </div>
+
+    {{outlet}}
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="portal/index">
+  <div class="contents">
+      <div class="contents-container">
+          <div>
+                <h2>Dashboard</h2>
+          </div>
+       </div>
+   </div>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="portal/events">
+  <div class="contents">
+      <div class="contents-container">
+          <div>
+                <h2>Events</h2>
+          </div>
+       </div>
+   </div>
+  </script>
+
+  <script type="text/x-handlebars" data-template-name="portal/devices">
+  <div class="contents">
+      <div class="contents-container">
+          <div>
+                <h2>Devices</h2>
           </div>
        </div>
    </div>
