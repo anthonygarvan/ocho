@@ -209,16 +209,63 @@
       <div class="contents-container">
           <div>
                 <h2>Events</h2>
+                <div class="events-buttons-container">
+                        <div class="quick-link-button event-button float-left" id="create-scheduled-event">Create Scheduled Event</div>
+                        <div class="quick-link-button event-button float-right" id="create-touch-event">Create Touch Event</div>
+                </div>
+                <div class="events-table-container">
+                {{#each event in model.events}}
+                <div class="table-row" data-id="{{unbound event.id}}">
+                    <div class="table-data event-col-1">
+                        {{#if event.isScheduled}} sch
+                        {{else}} tch {{/if}}
+                    </div>
+                    <div class="table-data event-col-2">
+                        {{event.name}}
+                    </div>
+                    <div class="table-data event-col-3">
+                        {{event.description}}
+                    </div>
+                    <div class="table-data event-col-4">
+                        {{#if event.active}} <span class="event-active">Active</span>
+                        {{else}} <span class="event-inactive">Inactive</span>
+                        {{/if}}
+                    </div>
+                    <div class="table-data event-col-5">
+                        <div class="del-button del-event-{{unbound event.id}}" data-id="{{unbound event.id}}"><img src="/static/img/red-x.png"></div>
+                    </div>
+                </div>
+                {{/each}}
+                </div>
           </div>
        </div>
    </div>
   </script>
 
   <script type="text/x-handlebars" data-template-name="portal/devices">
-  <div class="contents">
+ <div class="contents">
       <div class="contents-container">
           <div>
                 <h2>Devices</h2>
+                <div class="events-buttons-container">
+                        <div class="quick-link-button event-button float-left" id="add-ocho">Add Ocho</div>
+                        <div class="quick-link-button event-button float-right" id="add-tag">Add Tag</div>
+                </div>
+                <div class="devices-table-container">
+                {{#each device in model.devices}}
+                <div class="table-row" data-id="{{unbound device.id}}">
+                    <div class="table-data device-col-1">
+                        {{device.type}}
+                    </div>
+                    <div class="table-data device-col-2">
+                        {{device.name}}
+                    </div>
+                    <div class="table-data device-col-3 rename-device-{{unbound device.id}}" data-id="{{unbound device.id}}">
+                        rename
+                    </div>
+                </div>
+                {{/each}}
+                </div>
           </div>
        </div>
    </div>

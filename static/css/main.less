@@ -158,6 +158,7 @@ html, body {
 
 .nav-bar {
   background-color:@nav-color;
+  margin-bottom:20px;
 }
 
 .active .nav-link-button {
@@ -328,4 +329,101 @@ p {
   margin-top: 25px;
   margin-bottom: 20px;
   overflow:hidden;
+}
+
+.events-buttons-container {
+  width: 70%;
+  overflow:hidden;
+  margin: 0 auto;
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.quick-link-button.event-button {
+  width: 250px;
+}
+
+.events-table-container {
+  margin-top: 30px;
+}
+
+.table-row {
+  background-color: lightgreen;
+  .text(20px);
+  padding:10px;
+  margin: 2px;
+  overflow:hidden;
+  height:22px;
+}
+
+.table-data {
+  float:left;
+}
+
+.event-col-1 {
+  width: 8%;
+}
+
+.event-col-2 {
+  width: 25%;
+  font-weight: bold;
+}
+
+.event-col-3 {
+  width: 50%;
+  color: gray;
+}
+
+.event-col-4 {
+  width: 10%;
+}
+
+.event-col-5 {
+  width: 6%;
+}
+
+.event-active {
+  font-weight:bold;
+  color: #008000;
+}
+
+.event-inactive {
+  color: gray;
+  font-style: italic;
+}
+
+.del-button {
+  cursor:pointer;
+  display:none;
+}
+
+.device-col-1 {
+  width:20%;
+}
+
+.device-col-2 {
+  width:60%;
+}
+
+.device-col-3 {
+  width:20%;
+  color: gray;
+  cursor: pointer;
+  display:none;
+  &:hover {
+    text-decoration: underline;
+  }
+
+}
+
+.devices-table-container {
+  width: 70%;
+  margin: 0 auto;
+  margin-top: 30px;
 }

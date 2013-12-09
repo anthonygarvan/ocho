@@ -17,6 +17,30 @@ App.Router.map(function() {
     })
 });
 
+App.PortalRoute = Ember.Route.extend({
+  model: function() {
+      return {
+            email: 'anthony.garvan@gmail.com',
+            passwordHash: '555',
+            isAuthenticated: true
+      }
+  }
+});
+
+App.PortalEventsRoute = Ember.Route.extend({
+    model: function() {
+        return {events: [{id: 1, isScheduled: true, name:'Plug in cell phone', description: 'Email anthony.garvan@gmail.com', active:true},
+            {id: 2, isSchedued: false, name:'Let Erin know I\'m late', description: 'Notify 222-234-5543', active:false}]}
+        //return ['test1', 'test2'];
+    }
+});
+
+App.PortalDevicesRoute = Ember.Route.extend({
+    model: function() {
+        return {devices: [{id: 1, type:"ocho-pad", name:"Tony's Ocho"}, {id: 2, type:"ocho-mini", name:"Erin's Ocho"}, {id: 3, type:"tag", name:"Erin's Keys"}]}
+    }
+});
+
 App.IndexRoute = Ember.Route.extend({
   redirect: function() {
     this.transitionTo('public');
@@ -67,6 +91,35 @@ App.SiteView = Ember.View.extend({
         });}
 });
 
+App.PortalEventsView = Ember.View.extend({
+  didInsertElement : function(){
+    this._super();
+    Ember.run.scheduleOnce('afterRender', this, function(){
+        $('.table-row').hover(function() {
+            var eventId = $(this).attr("data-id");
+            var selector = ".del-event-" + eventId
+            $(selector).show();
+        }, function() {
+            var eventId = $(this).attr("data-id");
+            var selector = ".del-event-" + eventId
+            $(selector).hide();})
+    });}
+});
+
+App.PortalDevicesView = Ember.View.extend({
+  didInsertElement : function(){
+    this._super();
+    Ember.run.scheduleOnce('afterRender', this, function(){
+        $('.table-row').hover(function() {
+            var deviceId = $(this).attr("data-id");
+            var selector = ".rename-device-" + deviceId
+            $(selector).show();
+        }, function() {
+            var deviceId = $(this).attr("data-id");
+            var selector = ".rename-device-" + deviceId
+            $(selector).hide();})
+    });}
+});
 var toggleLogin = function() {
         if($('#login-form').is(":visible")) {
             $('#login-form').slideUp();
