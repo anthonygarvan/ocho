@@ -93,7 +93,7 @@ body {
   /* Pad bottom by footer height */
   padding: 0 0 35px;
 }
-.ember-application .ember-view {
+.ember-application > .ember-view {
   height: calc(100% - 35px);
 }
 .ember-application {
@@ -102,16 +102,15 @@ body {
   background: #eeebeb;
 }
 .top {
-  height: 155px;
   background-color: #0099cc;
-  overflow: hidden;
+  overflow: visible;
 }
 .header-container {
   width: 900px;
   margin: 0 auto;
+  position: relative;
 }
 .login-button {
-  margin-top: 77.5px;
   font-size: 38.75px;
   font-family: "Raleway", "Helvetica Neue Light", "Lucida Grande", "Calibri", "Arial", sans-serif;
   font-weight: normal;
@@ -120,6 +119,9 @@ body {
   color: white;
   float: right;
   cursor: pointer;
+  position: absolute;
+  right: 0px;
+  bottom: 0px;
 }
 .login-button:hover {
   background-color: #514444;
@@ -137,8 +139,7 @@ body {
   padding: 30px;
   position: absolute;
   display: none;
-  top: 155px;
-  left: 0px;
+  right: 0px;
   background-color: #5f5050;
   z-index: 1200;
 }
@@ -360,6 +361,7 @@ p {
 }
 .quick-link-button.event-button {
   width: 250px;
+  margin: 10px;
 }
 .events-table-container {
   margin-top: 30px;
@@ -372,7 +374,7 @@ p {
   padding: 10px;
   margin: 2px;
   overflow: hidden;
-  height: 22px;
+  min-height: 25px;
 }
 .table-data {
   float: left;

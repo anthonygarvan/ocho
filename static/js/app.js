@@ -74,16 +74,19 @@ App.SiteView = Ember.View.extend({
     didInsertElement: function() {
         this._super();
         Ember.run.scheduleOnce('afterRender', this, function(){
+            /*
             var loginLeft = $("#login").position()['left'];
             var loginRight = loginLeft + $("#login").outerWidth(true);
             var loginFormLeftPos = loginRight - $("#login-form").outerWidth(true);
             $("#login-form").css("left", loginFormLeftPos);
+            */
             $('#login').unbind("click").click(
                 function() {
                     toggleLogin();
                     //alert("clicked!");
                 }
             );
+
             $("#sign-in").unbind("click").click(function() {
                     window.location.href = "/#/site/portal";
                     toggleLogin();

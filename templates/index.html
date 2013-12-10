@@ -25,14 +25,15 @@
         <div class="header-container">
             <a href="/#/"><img src="/static/img/ocho-logo.png"></a>
             <div id="login" class="login-button">Login<span>▼</span></div>
+            <div id="login-form" class="login-form">
+                {{input type="text" value=email placeholder="email" size="50" class="email"}}
+                {{input type="password" value=password placeholder="password" size="50" class="password"}}
+                <div class="quick-link-button submit-login" id="sign-in">Sign In</div>
+        </div>
         </div>
     </div>
 
-    <div id="login-form" class="login-form">
-    {{input type="text" value=email placeholder="email" size="50" class="email"}}
-    {{input type="password" value=password placeholder="password" size="50" class="password"}}
-    <div class="quick-link-button submit-login" id="sign-in">Sign In</div>
-    </div>
+
 
     {{outlet}}
     </div>
