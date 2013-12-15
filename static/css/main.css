@@ -147,10 +147,18 @@ body {
   overflow: hidden;
   height: 100%;
 }
-.contents-second-pane {
-  background: #FFFFCC;
+.pane-one {
+  background: #eeebeb;
+}
+.pane-two {
+  background: #68217a;
+  padding: 30px;
+  color: white;
+}
+.pane-three {
+  background: #eeebeb;
   overflow: hidden;
-  border-top: 5px solid white;
+  padding: 30px;
 }
 .contents-container {
   width: 900px;
@@ -304,9 +312,6 @@ p {
 }
 .use-case-list {
   padding-left: 150px;
-}
-.one-two-three-container {
-  background-color: #FFFFCC;
 }
 .how-it-works-num-container {
   overflow: hidden;

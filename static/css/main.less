@@ -98,10 +98,19 @@ html, body {
   height:100%;
 }
 
-.contents-second-pane {
-  background: #FFFFCC;
+.pane-one {
+  background: @body-color;
+}
+.pane-two {
+  background: @nav-color;
+  padding:30px;
+  color:white;
+}
+
+.pane-three {
+  background: @body-color;
   overflow:hidden;
-  border-top: 5px solid white;
+  padding:30px;
 }
 
 .contents-container {
@@ -281,7 +290,6 @@ p {
 }
 
 .one-two-three-container {
-  background-color: #FFFFCC;
 }
 
 .how-it-works-num-container {
