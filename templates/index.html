@@ -46,7 +46,14 @@
     </div>
   </script>
   <script type="text/x-handlebars" data-template-name="public">
-
+    <div class="nav-bar">
+        <div class="contents-container">
+            <div class="nav-list">
+                <div class="nav-list-container">{{#link-to 'public.index'}}<div class="nav-link-button">About Ocho</div>{{/link-to}}</div>
+                <div class="nav-list-container">{{#link-to 'public.buy-an-ocho'}}<div class="nav-link-button">Buy an Ocho</div>{{/link-to}}</div>
+            </div>
+        </div>
+    </div>
     {{outlet}}
 
   </script>
@@ -68,14 +75,14 @@
         <div class="highlights-container">
             <div class="highlight">
                 Want one?
-                <div class="quick-link-container"><a href="/#/buy-an-ocho"><div class="quick-link-button">Buy an Ocho</div></a></div>
+                <div class="quick-link-container"><a href="/#/site/public/buy-an-ocho"><div class="quick-link-button">Buy an Ocho</div></a></div>
              </div>
             <div class="highlight">Have a new Ocho?
-            <div class="quick-link-container"><a href="/#/buy-an-ocho"><div class="quick-link-button">Register Here</div></a></div>
+            <div class="quick-link-container"><a href="/#/site/public/buy-an-ocho"><div class="quick-link-button">Register Here</div></a></div>
             </div>
             <div class="highlight">
             Ready to start?
-            <div class="quick-link-container"><a href="/#/buy-an-ocho"><div class="quick-link-button">Log In</div></a></div>
+            <div class="quick-link-container"><a href="/#/site/portal"><div class="quick-link-button">Log In</div></a></div>
             </div>
         </div>
     </div>
