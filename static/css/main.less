@@ -74,6 +74,11 @@ html, body {
   margin-bottom:20px;
 }
 
+.ocho-id {
+  .input(50%);
+  margin-top:40px;
+}
+
 .input(@width) {
   width: @width;
   font-size: 20px;
@@ -82,14 +87,16 @@ html, body {
 }
 
 .login-form {
-  @total-width: 300px;
+  @total-width: 100%;
   width: @total-width*.8;
   padding: @total-width*.1;
-  position:absolute;
-  display:none;
-  right: 0px;
   background-color:@login-button-color;
-  z-index:1200;
+  overflow: hidden;
+}
+
+.login-container {
+  width:500px;
+  margin:0 auto;
 }
 
 .contents {
@@ -234,6 +241,13 @@ html, body {
   text-align:center;
 }
 
+.ok {
+  .btn;
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(lighten(green,2%)), to(darken(green, 2%)));
+  &:hover {
+    .outer-glow(green);
+  }
+}
 
 .nav-link-button:active{
   background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#777777), to(#666666));
@@ -436,4 +450,64 @@ p {
   width: 70%;
   margin: 0 auto;
   margin-top: 30px;
+}
+
+.panel {
+  background-color: rgb(200, 203, 231);
+  border: solid 1px gray;
+  text-align:center;
+  padding:30px;
+  overflow:hidden;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.ok-container {
+  margin-top:30px;
+}
+
+.cancel {
+  color: rgb(80, 80, 80);
+  .text(20px);
+  cursor: pointer;
+  margin-right:20px;
+  padding-top:5px;
+}
+
+.cancel:hover {
+  text-decoration:underline;
+}
+
+.error-message {
+  .text(20px);
+  color:red;
+}
+
+.rename-input-container {
+  display:none;
+  overflow:hidden;
+}
+
+.rename-input {
+  .input(240px);
+}
+
+.device-rename-ok, .device-rename-cancel {
+  cursor: pointer;
+  .text(20px);
+  float:right;
+  color: gray;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 5px;
+}
+
+.new-name-container {
+  float:left;
+  overflow:hidden;
+}
+
+.quick-link-button.add-ocho-button {
+  margin: 0 auto;
+  width: 250px;
 }

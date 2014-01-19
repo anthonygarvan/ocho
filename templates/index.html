@@ -9,12 +9,13 @@
 <meta charset="utf-8">
 <title>Ocho</title>
 <link rel="stylesheet" href="/static/css/main.css">
-  <link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'>
+  <!--<link href='http://fonts.googleapis.com/css?family=Raleway' rel='stylesheet' type='text/css'> !-->
   <script src="/static/js/libs/jquery-1.10.2.js"></script>
   <script src="/static/js/libs/handlebars-v1.1.2.js"></script>
   <script src="/static/js/libs/ember-1.2.0.js"></script>
   <script src="/static/js/app.js"></script>
   <script src="/static/js/libs/jquery.slides.js"></script>
+  <script src="/static/js/libs/jquery.cookie.js"></script>
   <script src="/static/js/libs/Chart.js"></script>
 </head>
 <body>
@@ -25,12 +26,7 @@
     <div class="top">
         <div class="header-container">
             <a href="/#/"><img src="/static/img/ocho-logo.png"></a>
-            <div id="login" class="login-button">Login<span>▼</span></div>
-            <div id="login-form" class="login-form">
-                {{input type="text" value=email placeholder="email" size="50" class="email"}}
-                {{input type="password" value=password placeholder="password" size="50" class="password"}}
-                <div class="quick-link-button submit-login" id="sign-in">Sign In</div>
-        </div>
+            <a href="/#/site/public/login"><div id="login" class="login-button">Login</div></a>
         </div>
     </div>
 
@@ -45,6 +41,36 @@
     </div>
     </div>
   </script>
+
+   <script type="text/x-handlebars" data-template-name="public/login">
+   <div class="contents-container">
+   <div class="login-container">
+   <h2>Login</h2>
+   <div id="error-message" class="error-message"></div>
+   <div id="login-form" class="login-form">
+                {{input id="email"  type="text" value=email placeholder="email" size="50" class="email"}}
+                {{input id="password" type="password" value=password placeholder="password" size="50" class="password"}}
+                <div class="quick-link-button submit-login" id="sign-in">Sign In</div>
+   </div>
+   </div>
+   </div>
+   </script>
+
+   <script type="text/x-handlebars" data-template-name="public/register">
+   <div class="contents-container">
+   <div class="login-container">
+   <h2>Register</h2>
+   <div id="error-message" class="error-message"></div>
+   <div id="login-form" class="login-form">
+                {{input id="email" type="text" value=email placeholder="email" size="50" class="email"}}
+                {{input id="password" type="password" value=password placeholder="password" size="50" class="password"}}
+                {{input id="confirm" type="password" value=confirm placeholder="confirm password" size="50" class="password"}}
+                <div class="quick-link-button submit-login" id="register">Register</div>
+   </div>
+   </div>
+   </div>
+   </script>
+
   <script type="text/x-handlebars" data-template-name="public">
     <div class="nav-bar">
         <div class="contents-container">
@@ -232,8 +258,8 @@
         <div class="contents-container">
             <div class="nav-list">
                 <div class="nav-list-container">{{#link-to 'portal.index'}}<div class="nav-link-button">Dashboard</div>{{/link-to}}</div>
-                <div class="nav-list-container">{{#link-to 'portal.events'}}<div class="nav-link-button">Events</div>{{/link-to}}</div>
-                <div class="nav-list-container">{{#link-to 'portal.devices'}}<div class="nav-link-button">Devices</div>{{/link-to}}</div>
+                <div class="nav-list-container">{{#link-to 'events'}}<div class="nav-link-button">Events</div>{{/link-to}}</div>
+                <div class="nav-list-container">{{#link-to 'devices'}}<div class="nav-link-button">Devices</div>{{/link-to}}</div>
             </div>
         </div>
     </div>
@@ -252,14 +278,21 @@
    </div>
   </script>
 
-  <script type="text/x-handlebars" data-template-name="portal/events">
+  <script type="text/x-handlebars" data-template-name="events">
   <div class="contents">
       <div class="contents-container">
           <div>
                 <h2>Events</h2>
+                {{outlet}}
+           </div>
+       </div>
+  </div>
+  </script>
+
+<script type="text/x-handlebars" data-template-name="events/index">
                 <div class="events-buttons-container">
-                        <div class="quick-link-button event-button float-left" id="create-scheduled-event">Create Scheduled Event</div>
-                        <div class="quick-link-button event-button float-right" id="create-touch-event">Create Touch Event</div>
+                    <div class="quick-link-button event-button float-left" id="create-scheduled-event">Create Scheduled Event</div>
+                    <div class="quick-link-button event-button float-right" id="create-touch-event">Create Touch Event</div>
                 </div>
                 <div class="events-table-container">
                 {{#each event in model.events}}
@@ -285,39 +318,65 @@
                 </div>
                 {{/each}}
                 </div>
+</script>
+
+  <script type="text/x-handlebars" data-template-name="events/scheduled-event">
+<h1> Scheduled Event </h1>
+</script>
+
+  <script type="text/x-handlebars" data-template-name="events/touch-event">
+<h1> Touch Event </h1>
+</script>
+
+  <script type="text/x-handlebars" data-template-name="devices">
+ <div class="contents">
+      <div class="contents-container">
+          <div>
+                <h2>Devices</h2>
+                {{outlet}}
           </div>
        </div>
    </div>
   </script>
 
-  <script type="text/x-handlebars" data-template-name="portal/devices">
- <div class="contents">
-      <div class="contents-container">
-          <div>
-                <h2>Devices</h2>
+<script type="text/x-handlebars" data-template-name="devices/index">
                 <div class="events-buttons-container">
-                        <div class="quick-link-button event-button float-left" id="add-ocho">Add Ocho</div>
-                        <div class="quick-link-button event-button float-right" id="add-tag">Add Tag</div>
+                    <a href='/#/site/portal/devices/ocho'><div class="quick-link-button add-ocho-button" id="add-ocho">Add Ocho</div></a>
                 </div>
                 <div class="devices-table-container">
-                {{#each device in model.devices}}
-                <div class="table-row" data-id="{{unbound device.id}}">
+                {{#each device in model}}
+                <div class="table-row" data-id="{{unbound device.pk}}">
                     <div class="table-data device-col-1">
-                        {{device.type}}
+                        {{device.deviceType__name}}
                     </div>
                     <div class="table-data device-col-2">
-                        {{device.name}}
+                        <div id="rename-device-input-{{unbound device.pk}}" class="rename-input-container">
+                            <div id="new-name-container-{{unbound device.pk}}" class="new-name-container" data-id="{{unbound device.pk}}">
+                                {{input type="text" placeholder="Enter new name" size="50" class="rename-input"}}
+                            </div>
+                            <div id="rename-cancel" class="device-rename-cancel" data-id="{{unbound device.pk}}">cancel</div>
+                            <div id="rename-ok" data-id="{{unbound device.pk}}" class="device-rename-ok">Ok</div>
+                        </div>
+                        <span id="device-name-{{unbound device.pk}}" class="device-name-container">{{device.name}}</span>
                     </div>
-                    <div class="table-data device-col-3 rename-device-{{unbound device.id}}" data-id="{{unbound device.id}}">
+                    <div class="table-data device-col-3 rename rename-device-{{unbound device.pk}}" data-id="{{unbound device.pk}}">
                         rename
                     </div>
                 </div>
                 {{/each}}
                 </div>
-          </div>
-       </div>
-   </div>
-  </script>
+</script>
+
+<script type="text/x-handlebars" data-template-name="devices/ocho">
+    <div class="panel">
+    <h3>Register a New Ocho</h3>
+    {{input type="text" placeholder="Please enter you Ocho Id" size="50" class="ocho-id" id="deviceId"}}
+    <div class="ok-container">
+        <div class="ok float-right" id="register">Register My Ocho</div>
+        <a href="/#/site/portal/devices"><div class="cancel float-right" id="cancel">Cancel</div></a>
+        </div>
+    </div>
+</script>
 
 {% endverbatim handlebars %}
 
