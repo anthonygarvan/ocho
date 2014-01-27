@@ -258,7 +258,7 @@
         <div class="contents-container">
             <div class="nav-list">
                 <div class="nav-list-container">{{#link-to 'portal.index'}}<div class="nav-link-button">Dashboard</div>{{/link-to}}</div>
-                <div class="nav-list-container">{{#link-to 'events'}}<div class="nav-link-button">Events</div>{{/link-to}}</div>
+                <div class="nav-list-container">{{#link-to 'rules'}}<div class="nav-link-button">Rules</div>{{/link-to}}</div>
                 <div class="nav-list-container">{{#link-to 'devices'}}<div class="nav-link-button">Devices</div>{{/link-to}}</div>
             </div>
         </div>
@@ -278,54 +278,46 @@
    </div>
   </script>
 
-  <script type="text/x-handlebars" data-template-name="events">
+  <script type="text/x-handlebars" data-template-name="rules">
   <div class="contents">
       <div class="contents-container">
           <div>
-                <h2>Events</h2>
+                <h2>Rules</h2>
                 {{outlet}}
            </div>
        </div>
   </div>
   </script>
 
-<script type="text/x-handlebars" data-template-name="events/index">
+<script type="text/x-handlebars" data-template-name="rules/index">
                 <div class="events-buttons-container">
-                    <div class="quick-link-button event-button float-left" id="create-scheduled-event">Create Scheduled Event</div>
-                    <div class="quick-link-button event-button float-right" id="create-touch-event">Create Touch Event</div>
+                    <div class="quick-link-button create-rule" id="create-rule">Create Rule</div>
                 </div>
                 <div class="events-table-container">
-                {{#each event in model.events}}
-                <div class="table-row" data-id="{{unbound event.id}}">
-                    <div class="table-data event-col-1">
-                        {{#if event.isScheduled}} sch
-                        {{else}} tch {{/if}}
-                    </div>
+                {{#each rule in model}}
+                <div class="table-row" data-id="{{unbound rule.pk}}">
+                    <div class="table-data event-col-1"></div>
                     <div class="table-data event-col-2">
-                        {{event.name}}
+                        {{rule.name}}
                     </div>
                     <div class="table-data event-col-3">
-                        {{event.description}}
+                        {{rule.alert__type__name}}&nbsp{{rule.alert__contact}}
                     </div>
                     <div class="table-data event-col-4">
-                        {{#if event.active}} <span class="event-active">Active</span>
+                        {{#if rule.active}} <span class="event-active">Active</span>
                         {{else}} <span class="event-inactive">Inactive</span>
                         {{/if}}
                     </div>
                     <div class="table-data event-col-5">
-                        <div class="del-button del-event-{{unbound event.id}}" data-id="{{unbound event.id}}"><img src="/static/img/red-x.png"></div>
+                        <div class="del-button del-event-{{unbound rule.pk}}" data-id="{{unbound rule.pk}}"><img src="/static/img/red-x.png"></div>
                     </div>
                 </div>
                 {{/each}}
                 </div>
 </script>
 
-  <script type="text/x-handlebars" data-template-name="events/scheduled-event">
-<h1> Scheduled Event </h1>
-</script>
-
-  <script type="text/x-handlebars" data-template-name="events/touch-event">
-<h1> Touch Event </h1>
+  <script type="text/x-handlebars" data-template-name="rules/detail">
+<h1>Rule Detail</h1>
 </script>
 
   <script type="text/x-handlebars" data-template-name="devices">

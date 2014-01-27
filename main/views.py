@@ -87,11 +87,62 @@ def get_user(request):
 def register_ocho(request):
     user = get_user(request)
     deviceId = request.GET['deviceId']
-    device = Device.objects.filter(pk=deviceId)[0]
-    device.user = user
-    device.save()
+    devices = Device.objects.filter(pk=deviceId)
+    if len(devices) != 0:
+        device = devices[0]
+        device.user = user
+        device.save()
+        success = True
+    else:
+        success= False
 
     response = {}
-    response['success'] = True
+    response['success'] = success
 
     return HttpResponse(json.dumps(response))
+
+def get_rules(request):
+    user = get_user(request)
+    return HttpResponse(jsonify(get_rule_response(Rule.objects.filter(user=user))))
+
+def create_empty_rule(request):
+    user = get_user(request)
+    rule = Rule(user=user)
+    rule.save()
+    return HttpResponse(jsonify(get_rule_response(Rule.objects.filter(pk=rule.pk))[0]))
+
+def get_rule_response(queryResult):
+    flat_rule = queryResult.values('pk', 'base__name', 'base__pk', 'tag__name', 'tag__pk', 'condition','condition__pk', 'startTime', 'stopTime', 'alert__type__name', 'alert__contact', 'alert__pk')
+    return flat_rule
+
+def update_rule(request):
+    rule = Rule.objects.get(pk=request["pk"])
+    rule.base = Device.objects.get(pk=request['base__pk'])
+    rule.tag = Device.objects.get(pk=request['tag__pk'])
+    rule.condition = Condition.get(pk=request['condition__pk'])
+    rule.startTime = request['startTime']
+    rule.stopTime = request['stopTime']
+    rule.alert = Alert.objects.get(pk=request['alert__pk'])
+    rule.save()
+    return HttpResponse(jsonify(get_rule_response(rule.pk)[0]))
+
+def get_alerts(request):
+    user = get_user(request)
+    return HttpResponse(jsonify(get_alert_response(Alert.objects.filter(user=user))))
+
+def create_new_alert(request):
+    user = get_user(request)
+    alert = Alert(user=user)
+    alert.save()
+    return HttpResponse(jsonify(get_alert_response(Alert.filter.objects(pk=alert.pk))[0]))
+
+def update_alert(request):
+    alert = Alert.objects.get(pk=request['pk'])
+    alert.name = AlertType.objects.get(pk=request['type__pk'])
+    alert.contact = request['contact']
+    alert.save()
+    return HttpResponse(jsonify(get_alert_response(alert.pk)[0]))
+
+def get_alert_response(queryObject):
+    alert_flat = queryObject.values('pk','name', 'contact', 'isValidated')
+    return alert_flat

@@ -13,9 +13,8 @@ App.Router.map(function() {
         });
         this.resource("portal", function() {
             this.route("index", { path: "/"});
-            this.resource("events", function() {
-                this.route("scheduled-event", { path: "/scheduled-event"});
-                this.route("touch-event", { path: "/touch-event"});
+            this.resource("rules", function() {
+                this.route("detail", { path: "/detail"});
             });
             this.resource("devices", function() {
                this.route("ocho", { path: "/ocho"});
@@ -42,17 +41,16 @@ App.PortalRoute = Ember.Route.extend({
 });}
 });
 
-App.EventsRoute = Ember.Route.extend({
+App.RulesRoute = Ember.Route.extend({
     model: function() {
-        return {events: [{id: 1, isScheduled: true, name:'Plug in cell phone', description: 'Email anthony.garvan@gmail.com', active:true},
-            {id: 2, isSchedued: false, name:'Let Erin know I\'m late', description: 'Notify 222-234-5543', active:false}]}
-        //return ['test1', 'test2'];
+        var userId = getUserId();
+        return $.getJSON('/ajax/get-rules/', {userId: userId})
     }
 });
 
-App.EventsIndexRoute = Ember.Route.extend({
+App.RulesIndexRoute = Ember.Route.extend({
     model: function() {
-        return this.modelFor('events');
+        return this.modelFor('rules');
     }
 });
 
@@ -61,6 +59,12 @@ App.DevicesRoute = Ember.Route.extend({
         var userId = getUserId();
         return getDevices(userId);
     }
+    /*
+    setupController: function(controller, model) {
+        //model.reload();
+        controller.set('model', model);
+        //this._super(controller, model);
+    }*/
 });
 
 var getDevices = function(userId) {
@@ -196,7 +200,7 @@ App.SiteView = Ember.View.extend({
         });}
 });
 
-App.EventsIndexView = Ember.View.extend({
+App.RulesIndexView = Ember.View.extend({
   didInsertElement : function(){
     this._super();
     Ember.run.scheduleOnce('afterRender', this, function(){
@@ -218,33 +222,35 @@ App.DevicesIndexView = Ember.View.extend({
     this._super();
     Ember.run.scheduleOnce('afterRender', this, function(){
         requiresAuthentication();
-        bindHover();
+        that = this;
+        userId = getUserId();
+
+        $.getJSON('/ajax/get-devices/', {userId: userId}, function(data) {
+            var oldContent = that.controller.get('content');
+            var refreshPage = false;
+
+
+            if(oldContent.length !== data.length) {
+                refreshPage = true;
+            }
+            else {
+                for(i=0; i < data.length; i++) {
+                    if(oldContent[i].name !== data[i].name) {
+                        refreshPage = true;
+                    }
+                }
+            }
+            if(refreshPage) {
+                that.controller.set('content', data);
+                that.rerender();
+            }
+        });
 
         $('.device-rename-cancel').click(function() {
-            toNameView();
-            bindHover();
-        });
-        that = this;
-        $('.device-rename-ok').click(function() {
-            var userId = getUserId();
-            var deviceId = $(this).attr("data-id");
-            var inputSelector = "#new-name-container-" + deviceId;
-            var deviceName = $(inputSelector).children('input').val();
-            $.getJSON('/ajax/rename-device/', {userId: userId, deviceId: deviceId, deviceName:deviceName}, function(data) {
-                if(!data.success) {
-                    alert("error: could not rename");
-                } else {
-                    $.getJSON('/ajax/get-devices/', {userId: userId}, function(data) {
-                        that.controller.set('content', data);
-                        toNameView();
-                        bindHover();
-                    });
-                }
-            });
+            that.rerender();
         });
 
         $('.rename').click(function() {
-            //alert("renaming");
             var deviceId = $(this).attr("data-id");
             var inputSelector = "#rename-device-input-" + deviceId;
             var nameSelector = "#device-name-" + deviceId;
@@ -252,6 +258,37 @@ App.DevicesIndexView = Ember.View.extend({
             $(inputSelector).show();
             $(nameSelector).hide();
             $('.rename').hide();
+        });
+
+        $('.table-row').hover(function() {
+            var deviceId = $(this).attr("data-id");
+            var selector = ".rename-device-" + deviceId
+            $(selector).show();
+        }, function() {
+            var deviceId = $(this).attr("data-id");
+            var selector = ".rename-device-" + deviceId
+            $(selector).hide();})
+
+
+        $('.device-rename-ok').click(function() {
+            var userId = getUserId();
+            var deviceId = $(this).attr("data-id");
+            var inputSelector = "#new-name-container-" + deviceId;
+            var deviceName = $(inputSelector).children('input').val();
+            if(deviceName !== "") {
+                $.getJSON('/ajax/rename-device/', {userId: userId, deviceId: deviceId, deviceName:deviceName}, function(data) {
+                    if(!data.success) {
+                        alert("error: could not rename");
+                    } else {
+                        $.getJSON('/ajax/get-devices/', {userId: userId}, function(data) {
+                            //that.controller.set('content', data);
+                            that.rerender();
+                        });
+                    }
+                });
+            } else {
+                that.rerender();
+            }
         });
     });}
 });
@@ -265,6 +302,7 @@ App.DevicesOchoView = Ember.View.extend({
         $('#register').click(function() {
             var deviceId = $('#deviceId').val();
             var userId = getUserId();
+            if(deviceId !== "") {
             $.getJSON('/ajax/register-ocho/', {userId: userId, deviceId: deviceId}, function(data) {
                 if(data.success) {
                     alert("you have successfully registered!");
@@ -272,6 +310,9 @@ App.DevicesOchoView = Ember.View.extend({
                     alert("there wan an error with your device registation.")
                 }
             });
+            } else {
+                alert("Please enter the Ocho device Id displaying on your Ocho's screen.")
+            }
         });
 
         $('#cancel').click(function() {
@@ -279,22 +320,6 @@ App.DevicesOchoView = Ember.View.extend({
         })
     })
 }});
-
-var toNameView = function() {
-    $('.rename-input-container').hide();
-    $('.device-name-container').show();
-}
-
-var bindHover = function () {
-        $('.table-row').hover(function() {
-            var deviceId = $(this).attr("data-id");
-            var selector = ".rename-device-" + deviceId
-            $(selector).show();
-        }, function() {
-            var deviceId = $(this).attr("data-id");
-            var selector = ".rename-device-" + deviceId
-            $(selector).hide();})
-}
 
 App.PortalIndexView = Ember.View.extend({
   didInsertElement : function(){

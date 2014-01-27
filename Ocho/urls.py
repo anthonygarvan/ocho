@@ -13,6 +13,9 @@ urlpatterns = patterns('',
      url(r'^ajax/get-devices/', 'main.views.get_devices', name='get_devices'),
      url(r'^ajax/rename-device/', 'main.views.rename_device', name='rename_device'),
      url(r'^ajax/register-ocho/', 'main.views.register_ocho', name='register_ocho'),
+     url(r'^ajax/get-rules/', 'main.views.get_rules', name='get_rules'),
+     url(r'^ajax/create-empty-rule/', 'main.views.create_empty_rule', name='create_empty_rule'),
+     url(r'^ajax/update-rule/', 'main.views.update_rule', name='update_rule'),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
