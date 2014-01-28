@@ -135,11 +135,11 @@ body {
   margin-bottom: 20px;
 }
 .ocho-id {
-  width: 50%;
+  width: 60%;
   font-size: 20px;
   padding: 5px;
   border-radius: 5px;
-  margin-top: 40px;
+  margin-top: 20px;
 }
 .login-form {
   width: 80%;
@@ -467,8 +467,9 @@ p {
   margin-top: 30px;
 }
 .panel {
-  background-color: #c8cbe7;
-  border: solid 1px gray;
+  background-color: lightgreen;
+  border: solid 2px black;
+  -webkit-border-radius: 15px;
   text-align: center;
   padding: 30px;
   overflow: hidden;
@@ -486,6 +487,7 @@ p {
   cursor: pointer;
   margin-right: 20px;
   padding-top: 5px;
+  margin-top: 8px;
 }
 .cancel:hover {
   text-decoration: underline;

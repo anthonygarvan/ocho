@@ -302,16 +302,19 @@ App.DevicesOchoView = Ember.View.extend({
         $('#register').click(function() {
             var deviceId = $('#deviceId').val();
             var userId = getUserId();
+            var msg = '';
             if(deviceId !== "") {
             $.getJSON('/ajax/register-ocho/', {userId: userId, deviceId: deviceId}, function(data) {
                 if(data.success) {
-                    alert("you have successfully registered!");
+                    msg = "You have successfully registered!";
                 } else {
-                    alert("there wan an error with your device registation.")
+                    msg = "There wan an error with your device registation.";
                 }
+                $('.error-message').text(msg);
             });
             } else {
-                alert("Please enter the Ocho device Id displaying on your Ocho's screen.")
+                msg = "Please enter the Ocho device Id displaying on your Ocho's screen.";
+                $('.error-message').text(msg);
             }
         });
 
